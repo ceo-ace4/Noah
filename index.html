@@ -1,34 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memorial Site</title>
-    <style>
-        body {
-            background-color: #000;
-            color: #ffffff; /* Change text color to white */
-        }
-        img {
-            max-width: 100%; /* Make images responsive */
-            height: auto;
-        }
-        /* Other styles remain the same */
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RIP Noah Bachiller • 2007 – 2026</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #000000;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      touch-action: manipulation;
+    }
+    h1 {
+      font-size: 3.2rem;
+      margin: 1.2em 0 0.4em;
+      color: #ffffff;
+      letter-spacing: 1.2px;
+      text-shadow: 0 0 12px rgba(255,255,255,0.4);
+    }
+    .dates {
+      font-size: 1.8rem;
+      color: #dddddd;
+      margin: 0.2em 0 1.2em;
+      text-shadow: 0 0 8px rgba(255,255,255,0.3);
+    }
+    .memorial-section {
+      cursor: pointer;
+      transition: transform 0.4s ease, filter 0.5s ease;
+      margin: 1em 0 1em;
+      width: 90%;
+      max-width: 380px;
+    }
+    .memorial-section:hover {
+      transform: scale(1.05);
+      filter: brightness(1.15) grayscale(20%);
+    }
+    .memorial-portrait {
+      width: 100%;
+      max-width: 380px;
+      border-radius: 6px;
+      box-shadow: 0 0 50px rgba(255,255,255,0.15);
+      border: 1px solid #222222;
+      display: block;
+    }
+    .respect-footer {
+      font-size: 1.2rem;
+      color: #bbbbbb;
+      margin: 0.8em 0 1.4em;
+      font-style: italic;
+      text-shadow: 0 0 6px rgba(255,255,255,0.2);
+    }
+    .timer {
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: #ffffff;
+      background: rgba(20, 20, 40, 0.7);
+      padding: 1.3em 1.8em;
+      border-radius: 14px;
+      border: 1px solid #333333;
+      box-shadow: 0 0 30px rgba(255,255,255,0.1);
+      min-width: 320px;
+      margin: 0.5em 0 2em;
+      text-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+    .timer span {
+      display: inline-block;
+      min-width: 80px;
+    }
+    .label {
+      font-size: 1rem;
+      color: #aaaaaa;
+      margin-top: 0.6em;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+    .message {
+      max-width: 90%;
+      font-size: 1.4rem;
+      line-height: 1.7;
+      margin: 1em 1.5em 3em;
+      color: #eeeeee;
+    }
+    .silent-note {
+      font-style: italic;
+      color: #cccccc;
+      margin-top: 1em;
+    }
+    footer {
+      position: fixed;
+      bottom: 1em;
+      font-size: 0.9rem;
+      color: #555555;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Mobile fixes */
+    @media (max-width: 600px) {
+      h1 { font-size: 2.6rem; margin-top: 2em; }
+      .dates { font-size: 1.5rem; }
+      .memorial-portrait { max-width: 90vw; }
+      .timer { font-size: 2.2rem; padding: 1em 1.2em; min-width: 280px; }
+      .message { font-size: 1.25rem; margin: 1em 1em 4em; }
+    }
+
+    #audio-container {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      opacity: 0;
+      pointer-events: none;
+    }
+    iframe { border: none; }
+  </style>
 </head>
 <body>
-    <div>
-        <h1>Memorial Site</h1>
-        <div id="timer"></div>
-        <p id="message">Remembering those who have passed</p>
-        <img src="memorial-image.jpg" alt="Memorial Image">
-    </div>
-    <script>
-        // Original timer and functionality code
-        function startTimer() {
-            // Timer code here
+
+  <h1>RIP Noah Bachiller</h1>
+  <div class="dates">2007 – 2026</div>
+
+  <div class="memorial-section" onclick="unlockAudio()">
+    <img src="https://cdn.discordapp.com/attachments/1478586702229672190/1478601898138275850/FCD36743-53DE-4A93-BC18-3F45ECDDD6FD.png?ex=69a8fed3&is=69a7ad53&hm=98adf901de17d52413d61ffc30bc48b7ef288e343092dc18a74edaae42a84325&" alt="RIP Noah Bachiller - eternal rest" class="memorial-portrait">
+    <div class="respect-footer">Click memorial to pay respect</div>
+  </div>
+
+  <div class="timer" id="timer">
+    <span id="days">0</span>d
+    <span id="hours">00</span>h
+    <span id="minutes">00</span>m
+    <span id="seconds">00</span>s
+    <div class="label">since 11:00 PM NY time</div>
+  </div>
+
+  <div class="message">
+    Noah couldn't carry it anymore.<br>
+    That ignored apology at 11pm snapped the last thread.<br>
+    Depression took over—no fight left.<br>
+    Too young. Too silent. Gone for good.<br>
+    The whole crew feels the void.<br>
+    <span class="silent-note">Rest in peace, brother. Sky's looping low for you—way too high, fell all the way down. We keep your name alive. Never forgotten.</span>
+  </div>
+
+  <!-- Hidden Sky audio player -->
+  <div id="audio-container">
+    <iframe id="skyPlayer" 
+      src="https://www.youtube.com/embed/GYE9H4SMq5E?enablejsapi=1&autoplay=0&mute=1&loop=1&playlist=GYE9H4SMq5E&playsinline=1&controls=0" 
+      frameborder="0" 
+      allow="autoplay; encrypted-media; playsinline" 
+      allowfullscreen></iframe>
+  </div>
+
+  <script>
+    // Timer from 11:00 PM NY EST March 3, 2026 → March 4, 2026 04:00:00 UTC
+    const lossDate = new Date('2026-03-04T04:00:00Z');
+
+    function updateTimer() {
+      const now = new Date();
+      let diff = now - lossDate;
+
+      if (diff < 0) {
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      diff -= days * (1000 * 60 * 60 * 24);
+
+      const hours = Math.floor(diff / (1000 * 60 * 60));
+      diff -= hours * (1000 * 60 * 60);
+
+      const minutes = Math.floor(diff / (1000 * 60));
+      diff -= minutes * (1000 * 60);
+
+      const seconds = Math.floor(diff / 1000);
+
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+
+    let player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('skyPlayer', {
+        events: {
+          'onReady': onPlayerReady
         }
-        startTimer();
-    </script>
+      });
+    }
+
+    function onPlayerReady(event) {
+      // Silent until click
+    }
+
+    function unlockAudio() {
+      if (player && player.unMute) {
+        player.unMute();
+        player.setVolume(25);
+        player.playVideo();
+      }
+    }
+
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  </script>
+
 </body>
 </html>
