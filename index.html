@@ -113,8 +113,8 @@
   <div class="dates">Broken by silence • Since 10:00 PM EST, March 3, 2026</div>
 
   <div class="noah-section" onclick="unlockAudio()">
-    <img src="https://cdn.discordapp.com/attachments/1472713303712337962/1478596925182972060/IMG_0971.png?ex=69a8fa31&is=69a7a8b1&hm=85a28f180dd484fabdcdba0533f20e86f7898f1c1b389bf88a9f63afcb971227&" alt="Noah Bachiller - forever waiting for words that never came" class="noah-portrait">
-    <div class="pain-footer">Click his face to let Sky play low... or keep the silence heavy.</div>
+    <img src="https://cdn.discordapp.com/attachments/1478586702229672190/1478598983466356798/IMG_1085.jpg?ex=69a8fc1c&is=69a7aa9c&hm=709e8e32747e7adcbefdd60812265130e62619af647a6f07d11478afd9870e41&" alt="Noah Bachiller - forever waiting for words that never came" class="noah-portrait">
+    <div class="pain-footer">Click memorial to play respect</div>
   </div>
 
   <div class="timer" id="timer">
@@ -134,7 +134,7 @@
     <span class="silent-note">The chat feels empty without him. Depression's got him floating. Rest easy, brother—we see you even if she didn't. Sky's bumping in his honor now.</span>
   </div>
 
-  <!-- Hidden Sky audio player - Playboi Carti official audio, looped, starts muted -->
+  <!-- Hidden Sky audio - official audio embed, looped, muted start -->
   <div id="audio-container">
     <iframe id="skyPlayer" 
       src="https://www.youtube.com/embed/GYE9H4SMq5E?enablejsapi=1&autoplay=0&mute=1&loop=1&playlist=GYE9H4SMq5E&playsinline=1&controls=0" 
@@ -144,7 +144,7 @@
   </div>
 
   <script>
-    // Timer from 10pm NY March 3, 2026 (UTC March 4 03:00)
+    // Timer from 10pm EST March 3, 2026 (UTC March 4 03:00)
     const lossDate = new Date('2026-03-04T03:00:00Z');
 
     function updateTimer() {
@@ -179,7 +179,7 @@
     updateTimer();
     setInterval(updateTimer, 1000);
 
-    // YouTube player API for Sky
+    // YouTube API for hidden player
     let player;
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('skyPlayer', {
@@ -190,18 +190,18 @@
     }
 
     function onPlayerReady(event) {
-      // Ready but muted/silent until unlock
+      // Muted until clicked
     }
 
     function unlockAudio() {
       if (player && player.unMute) {
         player.unMute();
-        player.setVolume(25);  // low, atmospheric, doesn't overpower the mood
+        player.setVolume(25);  // low volume to match the heavy mood
         player.playVideo();
       }
     }
 
-    // Load YouTube API
+    // Load YT API
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     var firstScriptTag = document.getElementsByTagName('script')[0];
