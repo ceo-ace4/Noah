@@ -94,11 +94,16 @@
       color: #222222;
     }
     #audio-container {
-      position: fixed;
-      bottom: 15px;
-      right: 15px;
-      z-index: 5;
-      opacity: 0.3;
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      opacity: 0;
+      pointer-events: none;
+    }
+    iframe {
+      border: none;
     }
   </style>
 </head>
@@ -109,7 +114,7 @@
 
   <div class="noah-section" onclick="unlockAudio()">
     <img src="https://cdn.discordapp.com/attachments/1472713303712337962/1478596925182972060/IMG_0971.png?ex=69a8fa31&is=69a7a8b1&hm=85a28f180dd484fabdcdba0533f20e86f7898f1c1b389bf88a9f63afcb971227&" alt="Noah Bachiller - forever waiting for words that never came" class="noah-portrait">
-    <div class="pain-footer">Click his face to feel the quiet... or just let it sit in silence.</div>
+    <div class="pain-footer">Click his face to let Sky play low... or keep the silence heavy.</div>
   </div>
 
   <div class="timer" id="timer">
@@ -125,21 +130,22 @@
     One rejection, one ignored "I'm sorry,"<br>
     and the light just... went out.<br>
     No memes, no laughs, just endless replaying of what he could've said different.<br>
-    <span class="silent-note">The chat feels empty without him. Depression won this round. Rest easy, brother—we see you even if she didn't.</span>
+    Way too high to feel the fall, but still falling.<br>
+    <span class="silent-note">The chat feels empty without him. Depression's got him floating. Rest easy, brother—we see you even if she didn't. Sky's bumping in his honor now.</span>
   </div>
 
-  <!-- Optional faint audio (lo-fi sad vibes, muted start) -->
+  <!-- Hidden Sky audio player - Playboi Carti official audio, looped, starts muted -->
   <div id="audio-container">
-    <iframe id="sadPlayer" 
-      src="https://www.youtube.com/embed/jfKfPfyJRdk?enablejsapi=1&autoplay=0&mute=1&loop=1&playlist=jfKfPfyJRdk&playsinline=1&controls=0" 
+    <iframe id="skyPlayer" 
+      src="https://www.youtube.com/embed/GYE9H4SMq5E?enablejsapi=1&autoplay=0&mute=1&loop=1&playlist=GYE9H4SMq5E&playsinline=1&controls=0" 
       frameborder="0" 
       allow="autoplay; encrypted-media; playsinline" 
       allowfullscreen></iframe>
   </div>
 
   <script>
-    // Timer from 10pm NY time - adjust date if needed (example: March 3, 2026, 22:00 EST = March 4 03:00 UTC)
-    const lossDate = new Date('2026-03-04T03:00:00Z');  // 10pm EST previous day
+    // Timer from 10pm NY March 3, 2026 (UTC March 4 03:00)
+    const lossDate = new Date('2026-03-04T03:00:00Z');
 
     function updateTimer() {
       const now = new Date();
@@ -173,10 +179,10 @@
     updateTimer();
     setInterval(updateTimer, 1000);
 
-    // YouTube player for optional sad audio
+    // YouTube player API for Sky
     let player;
     function onYouTubeIframeAPIReady() {
-      player = new YT.Player('sadPlayer', {
+      player = new YT.Player('skyPlayer', {
         events: {
           'onReady': onPlayerReady
         }
@@ -184,21 +190,18 @@
     }
 
     function onPlayerReady(event) {
-      // Stays muted unless clicked
+      // Ready but muted/silent until unlock
     }
 
     function unlockAudio() {
       if (player && player.unMute) {
         player.unMute();
-        player.setVolume(20);  // keep it low and haunting
+        player.setVolume(25);  // low, atmospheric, doesn't overpower the mood
+        player.playVideo();
       }
     }
 
-    // Gesture unlocks if needed
-    document.addEventListener('touchstart', unlockAudio, {once: true, passive: true});
-    document.addEventListener('click', unlockAudio, {once: true});
-
-    // Load YT API
+    // Load YouTube API
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     var firstScriptTag = document.getElementsByTagName('script')[0];
