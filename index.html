@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>In Memory of Noah Bachiller</title>
+  <title>RIP Noah Bachiller • 2007 – 2026</title>
   <style>
     body {
       margin: 0;
@@ -14,84 +14,85 @@
       justify-content: center;
       align-items: center;
       background: #000000;
-      color: #444444;
+      color: #333333;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
       touch-action: manipulation;
     }
     h1 {
-      font-size: 3rem;
-      margin: 0.3em 0;
-      color: #222222;
-      letter-spacing: 0.5px;
+      font-size: 3.2rem;
+      margin: 0.2em 0;
+      color: #111111;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(0,0,0,0.8);
     }
     .dates {
-      font-size: 1.3rem;
-      color: #555555;
-      margin: 0.5em 0 1.5em;
+      font-size: 1.6rem;
+      color: #444444;
+      margin: 0.4em 0 1.2em;
     }
-    .noah-section {
+    .memorial-section {
       cursor: pointer;
-      transition: transform 0.3s, filter 0.4s;
-      margin: 1.2em 0 0.4em;
-      opacity: 0.85;
+      transition: transform 0.4s, filter 0.5s;
+      margin: 1em 0 0.5em;
+      opacity: 0.8;
     }
-    .noah-section:hover {
-      transform: scale(1.02);
-      filter: brightness(0.7) grayscale(30%);
+    .memorial-section:hover {
+      transform: scale(1.03);
+      filter: brightness(0.6) grayscale(50%);
     }
-    .noah-portrait {
-      max-width: 260px;
-      border-radius: 8px;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
-      border: 1px solid #111111;
+    .memorial-portrait {
+      max-width: 320px;
+      border-radius: 6px;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+      border: 1px solid #0a0a0a;
     }
-    .pain-footer {
-      font-size: 1rem;
-      color: #333333;
-      margin: 0.5em 0 1.5em;
+    .respect-footer {
+      font-size: 1.1rem;
+      color: #2a2a2a;
+      margin: 0.6em 0 1.2em;
       font-style: italic;
-      max-width: 85%;
+      max-width: 80%;
     }
     .timer {
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       font-weight: bold;
-      color: #1a1a1a;
-      background: rgba(10, 10, 20, 0.7);
-      padding: 1em 1.5em;
+      color: #0f0f0f;
+      background: rgba(5, 5, 15, 0.8);
+      padding: 1.1em 1.6em;
       border-radius: 10px;
-      border: 1px solid #0f0f0f;
-      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9);
-      min-width: 300px;
+      border: 1px solid #050505;
+      box-shadow: inset 0 0 40px rgba(0, 0, 0, 1);
+      min-width: 320px;
     }
     .timer span {
       display: inline-block;
-      min-width: 70px;
+      min-width: 75px;
     }
     .label {
-      font-size: 0.85rem;
-      color: #666666;
-      margin-top: 0.3em;
-      letter-spacing: 0.8px;
+      font-size: 0.9rem;
+      color: #555555;
+      margin-top: 0.4em;
+      letter-spacing: 1px;
       text-transform: uppercase;
     }
     .message {
-      max-width: 580px;
-      font-size: 1.2rem;
-      line-height: 1.7;
-      margin: 2em 1.2em 1em;
-      color: #555555;
+      max-width: 600px;
+      font-size: 1.3rem;
+      line-height: 1.6;
+      margin: 2.2em 1.5em 1em;
+      color: #4a4a4a;
     }
     .silent-note {
       font-style: italic;
-      color: #444444;
-      margin-top: 0.7em;
+      color: #333333;
+      margin-top: 0.8em;
     }
     footer {
       position: absolute;
-      bottom: 1.2em;
-      font-size: 0.85rem;
-      color: #222222;
+      bottom: 1.5em;
+      font-size: 0.9rem;
+      color: #1a1a1a;
     }
     #audio-container {
       position: absolute;
@@ -109,12 +110,12 @@
 </head>
 <body>
 
-  <h1>In Memory of Noah Bachiller</h1>
-  <div class="dates">Broken by silence • Since 10:00 PM EST, March 3, 2026</div>
+  <h1>RIP Noah Bachiller</h1>
+  <div class="dates">2007 – 2026</div>
 
-  <div class="noah-section" onclick="unlockAudio()">
-    <img src="https://cdn.discordapp.com/attachments/1478586702229672190/1478598983466356798/IMG_1085.jpg?ex=69a8fc1c&is=69a7aa9c&hm=709e8e32747e7adcbefdd60812265130e62619af647a6f07d11478afd9870e41&" alt="Noah Bachiller - forever waiting for words that never came" class="noah-portrait">
-    <div class="pain-footer">Click memorial to play respect</div>
+  <div class="memorial-section" onclick="unlockAudio()">
+    <img src="https://cdn.discordapp.com/attachments/1478586702229672190/1478598983466356798/IMG_1085.jpg?ex=69a8fc1c&is=69a7aa9c&hm=709e8e32747e7adcbefdd60812265130e62619af647a6f07d11478afd9870e41&" alt="In eternal memory of Noah Bachiller" class="memorial-portrait">
+    <div class="respect-footer">Click memorial to pay respect</div>
   </div>
 
   <div class="timer" id="timer">
@@ -122,19 +123,19 @@
     <span id="hours">00</span>h
     <span id="minutes">00</span>m
     <span id="seconds">00</span>s
-    <div class="label">since the apology died unanswered</div>
+    <div class="label">since we lost him</div>
   </div>
 
   <div class="message">
-    Noah was the guy who felt everything too deep.<br>
-    One rejection, one ignored "I'm sorry,"<br>
-    and the light just... went out.<br>
-    No memes, no laughs, just endless replaying of what he could've said different.<br>
-    Way too high to feel the fall, but still falling.<br>
-    <span class="silent-note">The chat feels empty without him. Depression's got him floating. Rest easy, brother—we see you even if she didn't. Sky's bumping in his honor now.</span>
+    Noah carried too much.<br>
+    One ignored apology broke the dam.<br>
+    Depression pulled him under, no lifeline.<br>
+    Gone too young, too quiet, too soon.<br>
+    The server's darker without his presence.<br>
+    <span class="silent-note">Rest in peace, brother. Sky plays low for you now—way too high to feel the fall, but you fell anyway. We won't forget.</span>
   </div>
 
-  <!-- Hidden Sky audio - official audio embed, looped, muted start -->
+  <!-- Hidden Sky audio - official, looped, muted until click -->
   <div id="audio-container">
     <iframe id="skyPlayer" 
       src="https://www.youtube.com/embed/GYE9H4SMq5E?enablejsapi=1&autoplay=0&mute=1&loop=1&playlist=GYE9H4SMq5E&playsinline=1&controls=0" 
@@ -144,7 +145,7 @@
   </div>
 
   <script>
-    // Timer from 10pm EST March 3, 2026 (UTC March 4 03:00)
+    // Timer from approx time of loss (March 4, 2026 03:00 UTC / 10pm EST March 3)
     const lossDate = new Date('2026-03-04T03:00:00Z');
 
     function updateTimer() {
@@ -179,7 +180,6 @@
     updateTimer();
     setInterval(updateTimer, 1000);
 
-    // YouTube API for hidden player
     let player;
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('skyPlayer', {
@@ -190,18 +190,17 @@
     }
 
     function onPlayerReady(event) {
-      // Muted until clicked
+      // Silent until unlocked
     }
 
     function unlockAudio() {
       if (player && player.unMute) {
         player.unMute();
-        player.setVolume(25);  // low volume to match the heavy mood
+        player.setVolume(25);
         player.playVideo();
       }
     }
 
-    // Load YT API
     var tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     var firstScriptTag = document.getElementsByTagName('script')[0];
