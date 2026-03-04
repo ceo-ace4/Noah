@@ -1,211 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RIP Noah Bachiller • 2007 – 2026</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: #000000;
-      color: #2f2f2f;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
-      touch-action: manipulation;
-    }
-    h1 {
-      font-size: 3.4rem;
-      margin: 0.2em 0;
-      color: #0d0d0d;
-      letter-spacing: 1.2px;
-      text-shadow: 0 0 15px rgba(0,0,0,1);
-    }
-    .dates {
-      font-size: 1.7rem;
-      color: #3a3a3a;
-      margin: 0.3em 0 1em;
-    }
-    .memorial-section {
-      cursor: pointer;
-      transition: transform 0.4s ease, filter 0.6s ease;
-      margin: 0.8em 0 0.4em;
-      opacity: 0.75;
-    }
-    .memorial-section:hover {
-      transform: scale(1.04);
-      filter: brightness(0.55) grayscale(60%);
-    }
-    .memorial-portrait {
-      max-width: 340px;
-      border-radius: 4px;
-      box-shadow: 0 0 60px rgba(0, 0, 0, 1);
-      border: 1px solid #000000;
-    }
-    .respect-footer {
-      font-size: 1.15rem;
-      color: #222222;
-      margin: 0.7em 0 1.3em;
-      font-style: italic;
-      max-width: 78%;
-    }
-    .timer {
-      font-size: 2.7rem;
-      font-weight: bold;
-      color: #0a0a0a;
-      background: rgba(0, 0, 10, 0.85);
-      padding: 1.2em 1.7em;
-      border-radius: 12px;
-      border: 1px solid #000000;
-      box-shadow: inset 0 0 50px rgba(0, 0, 0, 1);
-      min-width: 340px;
-    }
-    .timer span {
-      display: inline-block;
-      min-width: 80px;
-    }
-    .label {
-      font-size: 0.95rem;
-      color: #4d4d4d;
-      margin-top: 0.5em;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-    }
-    .message {
-      max-width: 620px;
-      font-size: 1.35rem;
-      line-height: 1.65;
-      margin: 2.4em 1.6em 1.2em;
-      color: #404040;
-    }
-    .silent-note {
-      font-style: italic;
-      color: #2a2a2a;
-      margin-top: 0.9em;
-    }
-    footer {
-      position: absolute;
-      bottom: 1.6em;
-      font-size: 0.95rem;
-      color: #151515;
-    }
-    #audio-container {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      clip: rect(1px, 1px, 1px, 1px);
-      opacity: 0;
-      pointer-events: none;
-    }
-    iframe {
-      border: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            color: white; /* Updated to white for better visibility */
+            /* Additional styles can be added here */
+        }
+        /* Additional bright colors for visibility */
+        .highlight {
+            color: yellow;
+        }
+    </style>
 </head>
 <body>
-
-  <h1>RIP Noah Bachiller</h1>
-  <div class="dates">2007 – 2026</div>
-
-  <div class="memorial-section" onclick="unlockAudio()">
-    <img src="https://cdn.discordapp.com/attachments/1478586702229672190/1478601898138275850/FCD36743-53DE-4A93-BC18-3F45ECDDD6FD.png?ex=69a8fed3&is=69a7ad53&hm=98adf901de17d52413d61ffc30bc48b7ef288e343092dc18a74edaae42a84325&" alt="RIP Noah Bachiller - eternal rest" class="memorial-portrait">
-    <div class="respect-footer">Click memorial to pay respect</div>
-  </div>
-
-  <div class="timer" id="timer">
-    <span id="days">0</span>d
-    <span id="hours">00</span>h
-    <span id="minutes">00</span>m
-    <span id="seconds">00</span>s
-    <div class="label">since 11:00 PM NY time</div>
-  </div>
-
-  <div class="message">
-    Noah couldn't carry it anymore.<br>
-    That ignored apology at 11pm snapped the last thread.<br>
-    Depression took over—no fight left.<br>
-    Too young. Too silent. Gone for good.<br>
-    The whole crew feels the void.<br>
-    <span class="silent-note">Rest in peace, brother. Sky's looping low for you—way too high, fell all the way down. We keep your name alive. Never forgotten.</span>
-  </div>
-
-  <!-- Hidden Sky audio player -->
-  <div id="audio-container">
-    <iframe id="skyPlayer" 
-      src="https://www.youtube.com/embed/GYE9H4SMq5E?enablejsapi=1&autoplay=0&mute=1&loop=1&playlist=GYE9H4SMq5E&playsinline=1&controls=0" 
-      frameborder="0" 
-      allow="autoplay; encrypted-media; playsinline" 
-      allowfullscreen></iframe>
-  </div>
-
-  <script>
-    // Timer now from 11:00 PM NY EST March 3, 2026 → March 4, 2026 04:00:00 UTC
-    const lossDate = new Date('2026-03-04T04:00:00Z');
-
-    function updateTimer() {
-      const now = new Date();
-      let diff = now - lossDate;
-
-      if (diff < 0) {
-        document.getElementById('days').textContent = '0';
-        document.getElementById('hours').textContent = '00';
-        document.getElementById('minutes').textContent = '00';
-        document.getElementById('seconds').textContent = '00';
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      diff -= days * (1000 * 60 * 60 * 24);
-
-      const hours = Math.floor(diff / (1000 * 60 * 60));
-      diff -= hours * (1000 * 60 * 60);
-
-      const minutes = Math.floor(diff / (1000 * 60));
-      diff -= minutes * (1000 * 60);
-
-      const seconds = Math.floor(diff / 1000);
-
-      document.getElementById('days').textContent = days;
-      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-    }
-
-    updateTimer();
-    setInterval(updateTimer, 1000);
-
-    let player;
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('skyPlayer', {
-        events: {
-          'onReady': onPlayerReady
-        }
-      });
-    }
-
-    function onPlayerReady(event) {
-      // Silent until click
-    }
-
-    function unlockAudio() {
-      if (player && player.unMute) {
-        player.unMute();
-        player.setVolume(25);
-        player.playVideo();
-      }
-    }
-
-    var tag = document.createElement('script');
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  </script>
-
+    <h1>Welcome to the Website</h1>
+    <p>This is a sample paragraph with updated colors.</p>
+    <p class="highlight">This text highlights important information.</p>
 </body>
 </html>
